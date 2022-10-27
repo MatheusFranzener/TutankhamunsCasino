@@ -1,19 +1,27 @@
 package br.senai.sc.tuthankamun.model.entities;
 
 public class Perfil {
+    private String cpf;
+    private String nome;
+    private String email;
+    private String senha;
+
+    private Integer jogos;
     private Integer nivel;
     private Integer vitorias;
     private double saldo;
 
     private Historico historico;
-    private Usuario usuario;
 
-    public Perfil(Integer nivel, Integer vitorias, double saldo, Historico historico, Usuario usuario) {
+    public Perfil(String cpf, String nome, String email, String senha, Integer nivel, double saldo, Integer jogos, Integer vitorias) {
+        this.cpf = cpf;
+        this.nome = nome;
+        this.email = email;
+        this.senha = senha;
+        this.jogos = jogos;
         this.nivel = nivel;
         this.vitorias = vitorias;
         this.saldo = saldo;
-        this.historico = historico;
-        this.usuario = usuario;
     }
 
     public Perfil() {}
@@ -50,12 +58,57 @@ public class Perfil {
         this.historico = historico;
     }
 
-    public Usuario getUsuario() {
-        return usuario;
+    public String getCpf() {
+        return cpf;
     }
 
-    public void setUsuario(Usuario usuario) {
-        this.usuario = usuario;
+    public void setCpf(String cpf) {
+        this.cpf = cpf;
     }
 
+    public String getNome() {
+        return nome;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getSenha() {
+        return senha;
+    }
+
+    public void setSenha(String senha) {
+        this.senha = senha;
+    }
+
+    public Integer getJogos() {
+        return jogos;
+    }
+
+    public void setJogos(Integer jogos) {
+        this.jogos = jogos;
+    }
+
+    @Override
+    public String toString() {
+        return "Perfil{" +
+                "cpf='" + cpf + '\'' +
+                ", nome='" + nome + '\'' +
+                ", email='" + email + '\'' +
+                ", senha='" + senha + '\'' +
+                ", jogos=" + jogos +
+                ", nivel=" + nivel +
+                ", vitorias=" + vitorias +
+                ", saldo=" + saldo +
+                '}';
+    }
 }
