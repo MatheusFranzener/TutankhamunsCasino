@@ -59,6 +59,25 @@ public class PerfilDAO {
         return perfilCollection;
     }
 
+    public Perfil selecionarPorEMAIL(String email){
+        String sql = "select * from perfil where email = ? limit 1";
+
+        try(PreparedStatement prtm = perfilConnection.prepareStatement(sql)){
+            prtm.setString(1, email);
+            try (ResultSet resultSet = prtm.executeQuery()){
+                if(resultSet.next()){
+                    return extrairObjeto(resultSet);
+                }
+            } catch (Exception e){
+                throw new RuntimeException("Erro na execução do comando SQL");
+            }
+        } catch (Exception e) {
+            throw new RuntimeException("Erro na preparação do comando SQL");
+        }
+
+        throw new RuntimeException("E-mail não encontrado!");
+    }
+
     private Perfil extrairObjeto(ResultSet resultSet) {
         try {
             return new PerfilFactory().getPerfil(

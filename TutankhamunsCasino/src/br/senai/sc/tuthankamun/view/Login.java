@@ -1,6 +1,10 @@
 package br.senai.sc.tuthankamun.view;
 
+import br.senai.sc.tuthankamun.controller.PerfilController;
+import br.senai.sc.tuthankamun.model.entities.Perfil;
+
 import javax.swing.*;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -12,54 +16,53 @@ public class Login extends JFrame implements Runnable {
     private JPanel panel;
     private JButton nãoPossuiCadastroButton;
 
-    public static Login login;
+    public Login() {
 
-    public Login(){
-        setContentPane(panel);
-        setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-        pack();
-        setVisible(true);
+        criarComponentes();
 
         logarButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                PerfilController controller = new PerfilController();
 
-            }
-        });
-
-        lembrarSenhaCheckBox.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-
-            }
-        });
-
-        senhaPasswordField.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-
-            }
-        });
-
-        emailTextField.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-
+                try {
+                    Perfil perfil = controller.validaLogin(emailTextField.getText(), senhaPasswordField.getText());
+                    dispose();
+                    Home home = new Home();
+                    home.setVisible(true);
+                } catch (Exception exception) {
+                    JOptionPane.showMessageDialog(null, exception.getMessage());
+                }
             }
         });
 
         nãoPossuiCadastroButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-
+                dispose();
+                Cadastro cadastro = new Cadastro();
+                cadastro.setVisible(true);
             }
         });
     }
 
+    private void criarComponentes() {
+        setContentPane(panel);
+        setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+        pack();
+    }
+
     public static void main(String[] args) {
-        login = new Login();
+        Login programa = new Login();
+        programa.run();
     }
 
     @Override
-    public void run(){}
+    public void run() {
+        if (!isVisible()) {
+            setVisible(true);
+        } else {
+            JOptionPane.showMessageDialog(null, "A janela já está aberta");
+        }
+    }
 }

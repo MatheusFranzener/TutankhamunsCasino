@@ -15,4 +15,8 @@ public class PerfilService {
         PerfilDAO perfilDAO = new PerfilDAO();
         return perfilDAO.listarTodos();
     }
+
+    public Perfil selecionarPorEMAIL(String email) {
+        return new PerfilDAO().selecionarPorEMAIL(email);
+    }
 }

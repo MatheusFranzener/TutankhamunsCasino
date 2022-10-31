@@ -26,6 +26,12 @@ public class Perfil {
 
     public Perfil() {}
 
+    public Perfil validaLogin(String senha) {
+        if (this.getSenha().equals(senha))
+            return this;
+        throw new RuntimeException("Senha incorreta!");
+    }
+
     public Integer getNivel() {
         return nivel;
     }
