@@ -3,12 +3,12 @@ package br.senai.sc.tuthankamun.model.entities;
 public class Historico {
     private double valorAposta;
     private double valorResultado;
-    private Integer idPerfil;
+    private String cpfPerfil;
 
-    public Historico(double valorAposta, double valorResultado, Integer idPerfil) {
+    public Historico(double valorAposta, double valorResultado, String cpfPerfil) {
         this.valorAposta = valorAposta;
         this.valorResultado = valorResultado;
-        this.idPerfil = idPerfil;
+        this.cpfPerfil = cpfPerfil;
     }
 
     public Historico() {}
@@ -29,11 +29,20 @@ public class Historico {
         this.valorResultado = valorResultado;
     }
 
-    public Integer getIdPerfil() {
-        return idPerfil;
+    public String getCpfPerfil() {
+        return cpfPerfil;
     }
 
-    public void setIdPerfil(Integer idPerfil) {
-        this.idPerfil = idPerfil;
+    public void setCpfPerfil(String cpfPerfil) {
+        this.cpfPerfil = cpfPerfil;
+    }
+
+    @Override
+    public String toString() {
+        return "Historico{" +
+                "valorAposta=" + valorAposta +
+                ", valorResultado=" + valorResultado +
+                ", cpfPerfil='" + cpfPerfil + '\'' +
+                '}';
     }
 }

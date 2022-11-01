@@ -1,5 +1,6 @@
 package br.senai.sc.tuthankamun.view;
 
+import br.senai.sc.tuthankamun.controller.HistoricoController;
 import br.senai.sc.tuthankamun.controller.PerfilController;
 
 import java.util.Scanner;
@@ -7,18 +8,17 @@ import java.util.Scanner;
 public class Teste {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        PerfilController controller = new PerfilController();
+        HistoricoController controller = new HistoricoController();
 
-        System.out.println("Digite o CPF: ");
-        String cpf = sc.nextLine();
-        System.out.println("Digite o nome: ");
-        String nome = sc.nextLine();
-        System.out.println("Digite o email: ");
-        String email = sc.nextLine();
-        System.out.println("Digite a senha: ");
-        String senha = sc.nextLine();
+        System.out.println("Informe o valor da aposta: ");
+        double valor = sc.nextDouble();
+        System.out.println("Resultado: ");
+        double resultado = sc.nextDouble();
+        System.out.println("Informe o id do usuário: ");
+        String cpfPerfil = sc.next();
 
-        controller.cadastrar(cpf, nome, email, senha, 0,0.0,0,0);
+        controller.inserirHistorico(valor, resultado, cpfPerfil);
+
 
         System.out.println(controller.listarTodos());
         sc.close();
