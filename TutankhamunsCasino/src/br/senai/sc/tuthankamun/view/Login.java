@@ -17,18 +17,15 @@ public class Login extends JFrame implements Runnable {
     private JButton nãoPossuiCadastroButton;
 
     public Login() {
-
         criarComponentes();
-
         logarButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 PerfilController controller = new PerfilController();
-
                 try {
                     Perfil perfil = controller.validaLogin(emailTextField.getText(), senhaPasswordField.getText());
                     dispose();
-                    Home home = new Home();
+                    Home home = new Home(perfil);
                     home.setVisible(true);
                 } catch (Exception exception) {
                     JOptionPane.showMessageDialog(null, exception.getMessage());
