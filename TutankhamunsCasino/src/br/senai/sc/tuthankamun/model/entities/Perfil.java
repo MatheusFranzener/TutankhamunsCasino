@@ -32,6 +32,10 @@ public class Perfil {
         throw new RuntimeException("Senha incorreta!");
     }
 
+    public void adicionarSaldo(double valor) {
+        this.setSaldo(this.getSaldo() + valor);
+    }
+
     public Integer getNivel() {
         return nivel;
     }

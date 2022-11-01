@@ -26,4 +26,9 @@ public class PerfilController {
         return model.validaLogin(senha);
     }
 
+    public void atualizarSaldo(double valor, String cpf){
+        PerfilService service = new PerfilService();
+        service.atualizarSaldo(valor, cpf);
+    }
+
 }

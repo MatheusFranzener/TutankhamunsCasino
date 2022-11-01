@@ -1,5 +1,6 @@
 package br.senai.sc.tuthankamun.view;
 
+import br.senai.sc.tuthankamun.controller.PerfilController;
 import br.senai.sc.tuthankamun.model.entities.Perfil;
 
 import javax.swing.*;
@@ -60,7 +61,8 @@ public class Home extends JFrame implements ActionListener {
                 ranking.setVisible(true);
                 break;
             case "adicionarSaldo":
-                // colocar joptionPane
+                PerfilController controller = new PerfilController();
+                controller.atualizarSaldo(Double.parseDouble(JOptionPane.showInputDialog("Digite o valor que deseja adicionar ao seu saldo")), usuario.getCpf());
                 break;
             case "visualizarPerfil":
                 dispose();

@@ -19,4 +19,9 @@ public class PerfilService {
     public Perfil selecionarPorEMAIL(String email) {
         return new PerfilDAO().selecionarPorEMAIL(email);
     }
+
+    public void atualizarSaldo(double valor, String cpf){
+        PerfilDAO perfilDAO = new PerfilDAO();
+        perfilDAO.atualizarSaldo(valor, cpf);
+    }
 }

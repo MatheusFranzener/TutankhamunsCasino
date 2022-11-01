@@ -59,6 +59,22 @@ public class PerfilDAO {
         return perfilCollection;
     }
 
+    public void atualizarSaldo(double saldo, String cpf) {
+        String sql = "update perfil set saldo = saldo + ? where cpf = ?";
+
+        try (PreparedStatement pstm = perfilConnection.prepareStatement(sql)) {
+            pstm.setDouble(1, saldo);
+            pstm.setString(2, cpf);
+            try {
+                pstm.execute();
+            } catch (SQLException e) {
+                throw new RuntimeException("Erro na execução do comando SQL");
+            }
+        } catch (Exception e) {
+            throw new RuntimeException("Erro na preparação do comando SQL (UPDATE)");
+        }
+    }
+
     public Perfil selecionarPorEMAIL(String email){
         String sql = "select * from perfil where email = ? limit 1";
 
