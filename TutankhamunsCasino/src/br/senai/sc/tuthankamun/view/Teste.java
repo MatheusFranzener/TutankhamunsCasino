@@ -19,7 +19,6 @@ public class Teste {
 
         controller.inserirHistorico(valor, resultado, cpfPerfil);
 
-
         System.out.println(controller.listarTodos());
         sc.close();
     }

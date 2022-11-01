@@ -42,7 +42,7 @@ public class PerfilDAO {
 
     public Collection<Perfil> listarTodos() {
         Collection<Perfil> perfilCollection = new ArrayList<>();
-        String sql = "select * from perfil";
+        String sql = "select * from perfil order by saldo DESC";
 
         try (PreparedStatement pstm = perfilConnection.prepareStatement(sql)) {
             try (ResultSet resultSet = pstm.executeQuery()) {
