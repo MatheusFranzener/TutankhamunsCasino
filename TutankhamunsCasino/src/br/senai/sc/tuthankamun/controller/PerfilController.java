@@ -5,6 +5,7 @@ import br.senai.sc.tuthankamun.model.entities.Perfil;
 import br.senai.sc.tuthankamun.model.service.PerfilService;
 
 import java.util.Collection;
+import java.util.List;
 
 public class PerfilController {
     PerfilService perfilService = new PerfilService();
@@ -29,6 +30,10 @@ public class PerfilController {
     public void atualizarSaldo(double valor, String cpf){
         PerfilService service = new PerfilService();
         service.atualizarSaldo(valor, cpf);
+    }
+
+    public List<Perfil> listarDadosPerfil(String cpf) {
+        return perfilService.listarDadosPerfil(cpf);
     }
 
 }

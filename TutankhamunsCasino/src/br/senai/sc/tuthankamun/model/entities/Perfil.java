@@ -24,6 +24,11 @@ public class Perfil {
         this.saldo = saldo;
     }
 
+    public Perfil(Integer jogos, Integer vitorias) {
+        this.jogos = jogos;
+        this.vitorias = vitorias;
+    }
+
     public Perfil() {}
 
     public Perfil validaLogin(String senha) {

@@ -10,6 +10,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.List;
 
 public class PerfilDAO {
     private Connection perfilConnection;
@@ -48,6 +49,26 @@ public class PerfilDAO {
             try (ResultSet resultSet = pstm.executeQuery()) {
                 while (resultSet != null && resultSet.next()) {
                     perfilCollection.add(extrairObjeto(resultSet));
+                }
+            } catch (SQLException e) {
+                throw new RuntimeException("Erro na execução do comando SQL");
+            }
+        } catch (Exception e) {
+            throw new RuntimeException("Erro na preparação do comando SQL (SELECT)");
+        }
+
+        return perfilCollection;
+    }
+
+    public List<Perfil> listarDadosPerfil(String cpf) {
+        List<Perfil> perfilCollection = new ArrayList<>();
+        String sql = "select  jogos, vitorias from perfil where cpf = ?";
+
+        try (PreparedStatement pstm = perfilConnection.prepareStatement(sql)) {
+            pstm.setString(1, cpf);
+            try (ResultSet resultSet = pstm.executeQuery()) {
+                while (resultSet != null && resultSet.next()) {
+                    perfilCollection.add(extrairObjetoPerfil(resultSet));
                 }
             } catch (SQLException e) {
                 throw new RuntimeException("Erro na execução do comando SQL");
@@ -103,6 +124,17 @@ public class PerfilDAO {
                     resultSet.getString("senha"),
                     resultSet.getInt("nivel"),
                     resultSet.getDouble("saldo"),
+                    resultSet.getInt("jogos"),
+                    resultSet.getInt("vitorias")
+            );
+        } catch (Exception e) {
+            throw new RuntimeException("Erro na extração do objeto");
+        }
+    }
+
+    private Perfil extrairObjetoPerfil(ResultSet resultSet) {
+        try {
+            return new PerfilFactory().getDadosPerfil(
                     resultSet.getInt("jogos"),
                     resultSet.getInt("vitorias")
             );

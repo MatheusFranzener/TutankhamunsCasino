@@ -11,6 +11,11 @@ public class Historico {
         this.cpfPerfil = cpfPerfil;
     }
 
+    public Historico(double valorAposta, double valorResultado) {
+        this.valorAposta = valorAposta;
+        this.valorResultado = valorResultado;
+    }
+
     public Historico() {}
 
     public double getValorAposta() {

@@ -14,8 +14,8 @@ public class HistoricoController {
         historicoService.cadastrar(historicoModel);
     }
 
-    public Collection<Historico> listarTodos() {
-        return historicoService.listarTodos();
+    public Collection<Historico> listarTodos(String cpf) {
+        return historicoService.listarTodos(cpf);
     }
 
 }

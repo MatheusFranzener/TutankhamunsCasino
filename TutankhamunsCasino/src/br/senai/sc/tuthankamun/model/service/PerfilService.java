@@ -1,9 +1,12 @@
 package br.senai.sc.tuthankamun.model.service;
 
+import br.senai.sc.tuthankamun.model.dao.HistoricoDAO;
 import br.senai.sc.tuthankamun.model.dao.PerfilDAO;
+import br.senai.sc.tuthankamun.model.entities.Historico;
 import br.senai.sc.tuthankamun.model.entities.Perfil;
 
 import java.util.Collection;
+import java.util.List;
 
 public class PerfilService {
     public void cadastrar(Perfil perfil) {
@@ -23,5 +26,10 @@ public class PerfilService {
     public void atualizarSaldo(double valor, String cpf){
         PerfilDAO perfilDAO = new PerfilDAO();
         perfilDAO.atualizarSaldo(valor, cpf);
+    }
+
+    public List<Perfil> listarDadosPerfil(String cpf){
+        PerfilDAO perfilDAO = new PerfilDAO();
+        return perfilDAO.listarDadosPerfil(cpf);
     }
 }

@@ -11,8 +11,9 @@ public class HistoricoService {
         historicoDAO.inserirHistorico(historico);
     }
 
-    public Collection<Historico> listarTodos() {
+    public Collection<Historico> listarTodos(String cpf) {
         HistoricoDAO historicoDAO = new HistoricoDAO();
-        return historicoDAO.listarTodos();
+        return historicoDAO.listarTodos(cpf);
     }
+
 }

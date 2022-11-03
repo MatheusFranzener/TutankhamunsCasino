@@ -26,7 +26,6 @@ public class HistoricoDAO {
         try (PreparedStatement pstm = historicoConnection.prepareStatement(sql)) {
             pstm.setDouble(1, historico.getValorAposta());
             pstm.setDouble(2, historico.getValorResultado());
-            pstm.setString(3, historico.getCpfPerfil());
             try {
                 pstm.execute();
             } catch (SQLException e) {
@@ -37,11 +36,12 @@ public class HistoricoDAO {
         }
     }
 
-    public Collection<Historico> listarTodos() {
+    public Collection<Historico> listarTodos(String cpf) {
         Collection<Historico> historicoCollection = new ArrayList<>();
-        String sql = "select * from historico";
+        String sql = "select aposta, resultado from historico where cpf_perfil = ?";
 
         try (PreparedStatement pstm = historicoConnection.prepareStatement(sql)) {
+            pstm.setString(1, cpf);
             try (ResultSet resultSet = pstm.executeQuery()) {
                 while (resultSet != null && resultSet.next()) {
                     historicoCollection.add(extrairObjeto(resultSet));
@@ -60,8 +60,7 @@ public class HistoricoDAO {
         try {
             return new HistoricoFactory().getHistorico(
                     resultSet.getDouble("aposta"),
-                    resultSet.getDouble("resultado"),
-                    resultSet.getString("cpf_perfil")
+                    resultSet.getDouble("resultado")
             );
         } catch (Exception e) {
             throw new RuntimeException("Erro na extração do objeto");
