@@ -62,7 +62,9 @@ public class Home extends JFrame implements ActionListener {
                 break;
             case "adicionarSaldo":
                 PerfilController controller = new PerfilController();
-                controller.atualizarSaldo(Double.parseDouble(JOptionPane.showInputDialog("Digite o valor que deseja adicionar ao seu saldo")), usuario.getCpf());
+                double saldo = Double.parseDouble(JOptionPane.showInputDialog("Digite o valor que deseja adicionar ao seu saldo"));
+                controller.atualizarSaldo(saldo, usuario.getCpf());
+                usuario.setSaldo(usuario.getSaldo() + saldo);
                 break;
             case "visualizarPerfil":
                 dispose();

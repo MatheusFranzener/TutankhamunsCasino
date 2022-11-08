@@ -32,6 +32,16 @@ public class PerfilController {
         service.atualizarSaldo(valor, cpf);
     }
 
+    public void subirNivel(int nivel, String cpf){
+        PerfilService service = new PerfilService();
+        service.subirNivel(nivel, cpf);
+    }
+
+    public void aumentarJogos(int jogos, int vitoria, String cpf){
+        PerfilService service = new PerfilService();
+        service.aumentarJogos(jogos, vitoria, cpf);
+    }
+
     public List<Perfil> listarDadosPerfil(String cpf) {
         return perfilService.listarDadosPerfil(cpf);
     }

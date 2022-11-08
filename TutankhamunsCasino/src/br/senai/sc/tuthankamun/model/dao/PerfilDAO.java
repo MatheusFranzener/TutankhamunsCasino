@@ -96,6 +96,39 @@ public class PerfilDAO {
         }
     }
 
+    public void subirNivel(int nivel, String cpf) {
+        String sql = "update perfil set nivel = nivel + ? where cpf = ?";
+
+        try (PreparedStatement pstm = perfilConnection.prepareStatement(sql)) {
+            pstm.setInt(1, nivel);
+            pstm.setString(2, cpf);
+            try {
+                pstm.execute();
+            } catch (SQLException e) {
+                throw new RuntimeException("Erro na execução do comando SQL");
+            }
+        } catch (Exception e) {
+            throw new RuntimeException("Erro na preparação do comando SQL (UPDATE)");
+        }
+    }
+
+    public void aumentarJogos(int jogo, int vitoria, String cpf) {
+        String sql = "update perfil set jogos = perfil.jogos + ? , vitorias = perfil.vitorias + ? where cpf = ?";
+
+        try (PreparedStatement pstm = perfilConnection.prepareStatement(sql)) {
+            pstm.setInt(1, jogo);
+            pstm.setInt(2, vitoria);
+            pstm.setString(3, cpf);
+            try {
+                pstm.execute();
+            } catch (SQLException e) {
+                throw new RuntimeException("Erro na execução do comando SQL");
+            }
+        } catch (Exception e) {
+            throw new RuntimeException("Erro na preparação do comando SQL (UPDATE)");
+        }
+    }
+
     public Perfil selecionarPorEMAIL(String email){
         String sql = "select * from perfil where email = ? limit 1";
 

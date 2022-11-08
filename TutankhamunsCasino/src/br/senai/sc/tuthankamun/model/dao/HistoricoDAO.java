@@ -26,6 +26,7 @@ public class HistoricoDAO {
         try (PreparedStatement pstm = historicoConnection.prepareStatement(sql)) {
             pstm.setDouble(1, historico.getValorAposta());
             pstm.setDouble(2, historico.getValorResultado());
+            pstm.setString(3, historico.getCpfPerfil());
             try {
                 pstm.execute();
             } catch (SQLException e) {

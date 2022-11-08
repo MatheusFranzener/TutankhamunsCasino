@@ -28,6 +28,16 @@ public class PerfilService {
         perfilDAO.atualizarSaldo(valor, cpf);
     }
 
+    public void subirNivel(int nivel, String cpf){
+        PerfilDAO perfilDAO = new PerfilDAO();
+        perfilDAO.subirNivel(nivel, cpf);
+    }
+
+    public void aumentarJogos(int jogos, int vitoria, String cpf){
+        PerfilDAO perfilDAO = new PerfilDAO();
+        perfilDAO.aumentarJogos(jogos, vitoria, cpf);
+    }
+
     public List<Perfil> listarDadosPerfil(String cpf){
         PerfilDAO perfilDAO = new PerfilDAO();
         return perfilDAO.listarDadosPerfil(cpf);
