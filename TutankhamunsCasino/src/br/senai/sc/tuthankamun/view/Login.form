@@ -13,27 +13,31 @@
           <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
-          <font name="Elephant" size="20" style="1"/>
+          <font name="Elephant" size="24" style="1"/>
           <text value="Login"/>
         </properties>
       </component>
       <component id="9d32c" class="javax.swing.JTextField" binding="emailTextField" default-binding="true">
         <constraints>
-          <grid row="2" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
+          <grid row="2" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false">
             <preferred-size width="150" height="-1"/>
           </grid>
         </constraints>
         <properties>
+          <font name="Fira Code" size="14" style="1"/>
+          <margin top="2" left="6" bottom="2" right="6"/>
           <text value=""/>
         </properties>
       </component>
       <component id="7ee94" class="javax.swing.JPasswordField" binding="senhaPasswordField" default-binding="true">
         <constraints>
-          <grid row="4" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
+          <grid row="4" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false">
             <preferred-size width="150" height="-1"/>
           </grid>
         </constraints>
         <properties>
+          <enabled value="true"/>
+          <margin top="2" left="6" bottom="2" right="6"/>
           <text value=""/>
         </properties>
       </component>
@@ -42,15 +46,18 @@
           <grid row="5" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
+          <font name="Fira Code" size="14" style="1"/>
           <text value="Lembrar Senha"/>
         </properties>
       </component>
       <component id="e425b" class="javax.swing.JButton" binding="logarButton" default-binding="true">
         <constraints>
-          <grid row="6" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+          <grid row="6" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
           <background color="-16750550"/>
+          <borderPainted value="false"/>
+          <font name="Fira Code" size="14" style="0"/>
           <foreground color="-463882"/>
           <hideActionText value="true"/>
           <text value="Logar"/>
@@ -58,9 +65,10 @@
       </component>
       <component id="c4bb6" class="javax.swing.JButton" binding="nãoPossuiCadastroButton" default-binding="true">
         <constraints>
-          <grid row="7" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+          <grid row="7" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
+          <font name="Fira Code" size="14" style="0"/>
           <text value="Não possui cadastro?"/>
         </properties>
       </component>
@@ -69,6 +77,7 @@
           <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
+          <font name="Fira Code" size="14" style="1"/>
           <text value="Email:"/>
         </properties>
       </component>
@@ -77,6 +86,7 @@
           <grid row="3" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
+          <font name="Fira Code" size="14" style="1"/>
           <text value="Senha:"/>
         </properties>
       </component>

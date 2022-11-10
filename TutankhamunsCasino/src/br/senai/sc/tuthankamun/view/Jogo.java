@@ -23,6 +23,7 @@ public class Jogo extends JFrame {
     private JLabel niquel2;
     private JLabel niquel3;
     private JLabel niquel4;
+    private JLabel saldo;
 
     private Perfil perfil = Home.getUsuario();
 
@@ -33,14 +34,19 @@ public class Jogo extends JFrame {
         criarMultiplicadores();
         pack();
 
+        saldo.setText(String.valueOf(perfil.getSaldo()));
+
         jogarButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 double valorAposta = Double.parseDouble(textField1.getText());
                 if(perfil.getSaldo() < valorAposta) {
-                    JOptionPane.showMessageDialog(null, "Saldo insuficiente");
+                    JOptionPane.showMessageDialog(null, "Saldo insuficiente!");
+                } else if(valorAposta <= 0){
+                    JOptionPane.showMessageDialog(null, "Valor inválido!");
                 } else {
                     jogo(valorAposta);
+                    saldo.setText(String.valueOf(perfil.getSaldo()));
                 }
             }
         });
@@ -56,12 +62,12 @@ public class Jogo extends JFrame {
     }
 
     private void criarMultiplicadores() {
-        image1.setIcon(new ImageIcon(getClass().getResource("/br/senai/sc/tuthankamun/view/mult5.png")));
-        image2.setIcon(new ImageIcon(getClass().getResource("/br/senai/sc/tuthankamun/view/mult6.png")));
-        image3.setIcon(new ImageIcon(getClass().getResource("/br/senai/sc/tuthankamun/view/mult.png")));
-        image4.setIcon(new ImageIcon(getClass().getResource("/br/senai/sc/tuthankamun/view/mult4.png")));
-        image5.setIcon(new ImageIcon(getClass().getResource("/br/senai/sc/tuthankamun/view/mult2.png")));
-        image6.setIcon(new ImageIcon(getClass().getResource("/br/senai/sc/tuthankamun/view/mult3.png")));
+        image1.setIcon(new ImageIcon(getClass().getResource("/br/senai/sc/tuthankamun/view/images/mult5.png")));
+        image2.setIcon(new ImageIcon(getClass().getResource("/br/senai/sc/tuthankamun/view/images/mult6.png")));
+        image3.setIcon(new ImageIcon(getClass().getResource("/br/senai/sc/tuthankamun/view/images/mult.png")));
+        image4.setIcon(new ImageIcon(getClass().getResource("/br/senai/sc/tuthankamun/view/images/mult4.png")));
+        image5.setIcon(new ImageIcon(getClass().getResource("/br/senai/sc/tuthankamun/view/images/mult2.png")));
+        image6.setIcon(new ImageIcon(getClass().getResource("/br/senai/sc/tuthankamun/view/images/mult3.png")));
     }
 
     private void jogo(double valor) {
@@ -87,96 +93,96 @@ public class Jogo extends JFrame {
                 c1++;
                 switch (contador) {
                     case 1:
-                        niquel1.setIcon(new ImageIcon(getClass().getResource("/br/senai/sc/tuthankamun/view/mult5.png")));
+                        niquel1.setIcon(new ImageIcon(getClass().getResource("/br/senai/sc/tuthankamun/view/images/mult5.png")));
                         break;
                     case 2:
-                        niquel2.setIcon(new ImageIcon(getClass().getResource("/br/senai/sc/tuthankamun/view/mult5.png")));
+                        niquel2.setIcon(new ImageIcon(getClass().getResource("/br/senai/sc/tuthankamun/view/images/mult5.png")));
                         break;
                     case 3:
-                        niquel3.setIcon(new ImageIcon(getClass().getResource("/br/senai/sc/tuthankamun/view/mult5.png")));
+                        niquel3.setIcon(new ImageIcon(getClass().getResource("/br/senai/sc/tuthankamun/view/images/mult5.png")));
                         break;
                     case 4:
-                        niquel4.setIcon(new ImageIcon(getClass().getResource("/br/senai/sc/tuthankamun/view/mult5.png")));
+                        niquel4.setIcon(new ImageIcon(getClass().getResource("/br/senai/sc/tuthankamun/view/images/mult5.png")));
                         break;
                 }
             } else if (numero <= simb2) {
                 c2++;
                 switch (contador) {
                     case 1:
-                        niquel1.setIcon(new ImageIcon(getClass().getResource("/br/senai/sc/tuthankamun/view/mult6.png")));
+                        niquel1.setIcon(new ImageIcon(getClass().getResource("/br/senai/sc/tuthankamun/view/images/mult6.png")));
                         break;
                     case 2:
-                        niquel2.setIcon(new ImageIcon(getClass().getResource("/br/senai/sc/tuthankamun/view/mult6.png")));
+                        niquel2.setIcon(new ImageIcon(getClass().getResource("/br/senai/sc/tuthankamun/view/images/mult6.png")));
                         break;
                     case 3:
-                        niquel3.setIcon(new ImageIcon(getClass().getResource("/br/senai/sc/tuthankamun/view/mult6.png")));
+                        niquel3.setIcon(new ImageIcon(getClass().getResource("/br/senai/sc/tuthankamun/view/images/mult6.png")));
                         break;
                     case 4:
-                        niquel4.setIcon(new ImageIcon(getClass().getResource("/br/senai/sc/tuthankamun/view/mult6.png")));
+                        niquel4.setIcon(new ImageIcon(getClass().getResource("/br/senai/sc/tuthankamun/view/images/mult6.png")));
                         break;
                 }
             } else if (numero <= simb3) {
                 c3++;
                 switch (contador) {
                     case 1:
-                        niquel1.setIcon(new ImageIcon(getClass().getResource("/br/senai/sc/tuthankamun/view/mult.png")));
+                        niquel1.setIcon(new ImageIcon(getClass().getResource("/br/senai/sc/tuthankamun/view/images/mult.png")));
                         break;
                     case 2:
-                        niquel2.setIcon(new ImageIcon(getClass().getResource("/br/senai/sc/tuthankamun/view/mult.png")));
+                        niquel2.setIcon(new ImageIcon(getClass().getResource("/br/senai/sc/tuthankamun/view/images/mult.png")));
                         break;
                     case 3:
-                        niquel3.setIcon(new ImageIcon(getClass().getResource("/br/senai/sc/tuthankamun/view/mult.png")));
+                        niquel3.setIcon(new ImageIcon(getClass().getResource("/br/senai/sc/tuthankamun/view/images/mult.png")));
                         break;
                     case 4:
-                        niquel4.setIcon(new ImageIcon(getClass().getResource("/br/senai/sc/tuthankamun/view/mult.png")));
+                        niquel4.setIcon(new ImageIcon(getClass().getResource("/br/senai/sc/tuthankamun/view/images/mult.png")));
                         break;
                 }
             } else if (numero <= simb4) {
                 c4++;
                 switch (contador) {
                     case 1:
-                        niquel1.setIcon(new ImageIcon(getClass().getResource("/br/senai/sc/tuthankamun/view/mult4.png")));
+                        niquel1.setIcon(new ImageIcon(getClass().getResource("/br/senai/sc/tuthankamun/view/images/mult4.png")));
                         break;
                     case 2:
-                        niquel2.setIcon(new ImageIcon(getClass().getResource("/br/senai/sc/tuthankamun/view/mult4.png")));
+                        niquel2.setIcon(new ImageIcon(getClass().getResource("/br/senai/sc/tuthankamun/view/images/mult4.png")));
                         break;
                     case 3:
-                        niquel3.setIcon(new ImageIcon(getClass().getResource("/br/senai/sc/tuthankamun/view/mult4.png")));
+                        niquel3.setIcon(new ImageIcon(getClass().getResource("/br/senai/sc/tuthankamun/view/images/mult4.png")));
                         break;
                     case 4:
-                        niquel4.setIcon(new ImageIcon(getClass().getResource("/br/senai/sc/tuthankamun/view/mult4.png")));
+                        niquel4.setIcon(new ImageIcon(getClass().getResource("/br/senai/sc/tuthankamun/view/images/mult4.png")));
                         break;
                 }
             } else if (numero <= simb5) {
                 c5++;
                 switch (contador) {
                     case 1:
-                        niquel1.setIcon(new ImageIcon(getClass().getResource("/br/senai/sc/tuthankamun/view/mult2.png")));
+                        niquel1.setIcon(new ImageIcon(getClass().getResource("/br/senai/sc/tuthankamun/view/images/mult2.png")));
                         break;
                     case 2:
-                        niquel2.setIcon(new ImageIcon(getClass().getResource("/br/senai/sc/tuthankamun/view/mult2.png")));
+                        niquel2.setIcon(new ImageIcon(getClass().getResource("/br/senai/sc/tuthankamun/view/images/mult2.png")));
                         break;
                     case 3:
-                        niquel3.setIcon(new ImageIcon(getClass().getResource("/br/senai/sc/tuthankamun/view/mult2.png")));
+                        niquel3.setIcon(new ImageIcon(getClass().getResource("/br/senai/sc/tuthankamun/view/images/mult2.png")));
                         break;
                     case 4:
-                        niquel4.setIcon(new ImageIcon(getClass().getResource("/br/senai/sc/tuthankamun/view/mult2.png")));
+                        niquel4.setIcon(new ImageIcon(getClass().getResource("/br/senai/sc/tuthankamun/view/images/mult2.png")));
                         break;
                 }
             } else {
                 c6++;
                 switch (contador) {
                     case 1:
-                        niquel1.setIcon(new ImageIcon(getClass().getResource("/br/senai/sc/tuthankamun/view/mult3.png")));
+                        niquel1.setIcon(new ImageIcon(getClass().getResource("/br/senai/sc/tuthankamun/view/images/mult3.png")));
                         break;
                     case 2:
-                        niquel2.setIcon(new ImageIcon(getClass().getResource("/br/senai/sc/tuthankamun/view/mult3.png")));
+                        niquel2.setIcon(new ImageIcon(getClass().getResource("/br/senai/sc/tuthankamun/view/images/mult3.png")));
                         break;
                     case 3:
-                        niquel3.setIcon(new ImageIcon(getClass().getResource("/br/senai/sc/tuthankamun/view/mult3.png")));
+                        niquel3.setIcon(new ImageIcon(getClass().getResource("/br/senai/sc/tuthankamun/view/images/mult3.png")));
                         break;
                     case 4:
-                        niquel4.setIcon(new ImageIcon(getClass().getResource("/br/senai/sc/tuthankamun/view/mult3.png")));
+                        niquel4.setIcon(new ImageIcon(getClass().getResource("/br/senai/sc/tuthankamun/view/images/mult3.png")));
                         break;
                 }
             }

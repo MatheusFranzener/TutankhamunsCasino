@@ -11,11 +11,13 @@ import java.awt.event.ActionListener;
 public class PerfilUsuario extends JFrame {
     private JPanel panel1;
     private JTable tabelaHistorico;
-    private JTable tabelaPerfil;
     private JButton button1;
     private JLabel labelNome;
     private JLabel labelNivel;
     private JLabel labelSaldo;
+    private JLabel totalJogos;
+    private JLabel vitorias;
+    private JLabel derrotas;
 
     private Perfil perfil = Home.getUsuario();
 
@@ -34,17 +36,17 @@ public class PerfilUsuario extends JFrame {
 
     private void criarComponentes(){
         HistoricoController controller = new HistoricoController();
-        PerfilController perfilController = new PerfilController();
 
         tabelaHistorico.setModel(new DefaultTableModelCollectionHistorico(controller.listarTodos(perfil.getCpf())));
         tabelaHistorico.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 
-        tabelaPerfil.setModel(new DeafaultModelCollectionPerfil(perfilController.listarDadosPerfil(perfil.getCpf())));
-        tabelaPerfil.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
-
         labelNome.setText(perfil.getNome());
         labelNivel.setText(String.valueOf(perfil.getNivel()));
         labelSaldo.setText(String.valueOf(perfil.getSaldo()));
+
+        totalJogos.setText(String.valueOf(perfil.getJogos()));
+        vitorias.setText(String.valueOf(perfil.getVitorias()));
+        derrotas.setText(String.valueOf(perfil.getJogos() - perfil.getVitorias()));
 
         setContentPane(panel1);
         setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);

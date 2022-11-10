@@ -13,6 +13,7 @@ public class Cadastro extends JFrame {
     private JTextField emailInput;
     private JPasswordField senhaInput;
     private JButton cadastrarButton;
+    private JButton cancelarButton;
 
 
     public Cadastro(){
@@ -41,6 +42,13 @@ public class Cadastro extends JFrame {
                         JOptionPane.showMessageDialog(null, exception.getMessage());
                     }
                 }
+            }
+        });
+        cancelarButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                voltar();
+                dispose();
             }
         });
     }
